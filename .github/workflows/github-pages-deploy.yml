@@ -36,6 +36,9 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
+    permissions: 
+      id-token: write
+      pages: write
     if: github.ref == 'refs/heads/main'
 
     steps:
@@ -45,5 +48,4 @@ jobs:
           name: github-pages
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
-        
+        uses: actions/deploy-pages@v4        
